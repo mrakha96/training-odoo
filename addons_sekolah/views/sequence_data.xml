@@ -1,0 +1,25 @@
+<odoo>
+    <data noupdate="1">
+
+
+        <!-- Sequences Siswa -->
+
+        <record id="seq_sale_order" model="ir.sequence">
+            <field name="name">NIS</field>
+            <field name="code">sekolah.siswa</field>
+            <field name="prefix">101</field>
+            <field name="padding">3</field>
+        </record>
+
+        <!-- Sequences Guru -->
+
+        <record id="seq_sale_order" model="ir.sequence">
+            <field name="name">NIP</field>
+            <field name="code">sekolah.guru</field>
+            <field name="prefix">150</field>
+            <field name="padding">3</field>
+        </record>
+
+
+    </data>
+</odoo>

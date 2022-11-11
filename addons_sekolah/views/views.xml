@@ -1,0 +1,439 @@
+<odoo>
+  <data>
+
+  <!-- Membuat View Tree/List Siswa -->
+ 
+<record id="sekolah_siswa_view_tree" model="ir.ui.view">
+    <field name="name">sekolah.siswa.tree</field>
+    <field name="model">sekolah.siswa</field>
+    <field name="arch" type="xml">
+        <tree string="Siswa List">
+            <field name="nis"/>
+            <field name="name"/>
+            <field name="kelas_id"/>
+            <field name="jns_kelamin"/>
+            <field name="tgl_lahir"/>
+            <field name="agama"/>
+            <field name="nm_ayah"/>
+            <field name="nm_ibu"/>
+            <field name="usia"/>
+            <field name="alamat"/>
+        </tree>
+    </field>
+</record>
+
+<!-- Membuat View Form Siswa -->
+ 
+<record id="sekolah_siswa_view_form" model="ir.ui.view">
+    <field name="name">sekolah.siswa.form</field>
+    <field name="model">sekolah.siswa</field>
+    <field name="arch" type="xml">
+        <form string="Siswa Form">
+            <sheet>
+                <group col="2">
+                    <group col="2">
+                        <field name="nis"/>
+                        <field name="name"/>
+                        <field name="jns_kelamin"/>
+                        <field name="agama"/>
+                        <field name="kelas_id" widget="selection"/>
+                    </group>
+                    <group col="1">
+                        <field name="tgl_lahir"/>
+                        <field name="usia"/>
+                    </group>
+                    <group col="2">
+                        <field name="nm_ayah"/>
+                        <field name="nm_ibu"/>
+                    </group>
+                    <group col="2">
+                    <field name="alamat"/>
+                    </group>
+                </group>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
+        </form>
+    </field>
+</record>
+
+<!-- Membuat Action/Event Siswa -->
+ 
+<record id="sekolah_siswa_action" model="ir.actions.act_window">
+    <field name="name">Siswa</field>
+    <field name="res_model">sekolah.siswa</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p name="o_view_nocontent_smiling_face">
+            Masukan data siswa ...
+        </p>
+    </field>
+</record>
+
+<!-- Membuat View Tree/List Guru -->
+ 
+<record id="sekolah_guru_view_tree" model="ir.ui.view">
+    <field name="name">sekolah.guru.tree</field>
+    <field name="model">sekolah.guru</field>
+    <field name="arch" type="xml">
+        <tree string="Guru List">
+            <field name="nip"/>
+            <field name="name"/>
+            <field name="jns_kelamin"/>
+            <field name="mapel_line"/>
+            <field name="usia"/>
+            <field name="no_telp"/>
+            <field name="alamat"/>
+        </tree>
+    </field>
+</record>
+
+<!-- Membuat View Form Guru -->
+ 
+<record id="sekolah_guru_view_form" model="ir.ui.view">
+    <field name="name">sekolah.guru.form</field>
+    <field name="model">sekolah.guru</field>
+    <field name="arch" type="xml">
+        <form string="Guru Form">
+            <sheet>
+                <group col="2">
+                    <group col="2">
+                        <field name="nip"/>
+                        <field name="name"/>
+                        <field name="jns_kelamin"/>
+                    </group>
+                    <!--group col="1">
+                        <field name="mata_pelajaran" nolabel="1"/>
+                            <field name="mapel_line" mode="tree,kanban" nolabel="1">
+                                <tree string="Mata Pelajaran">
+                                    <field name="jurusan"/>
+                                    <field name="jurusan"/>
+                                </tree>
+                                <form string='Mata Pelajaran'>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="jurusan"/>
+                                    </group>
+                                </form>
+                            </field>
+                    </group-->
+                    <field name="mapel_line" mode="tree,list">
+                        <tree string="Mata Pelajaran">
+                            <field name="name"/>
+                            <field name="jurusan"/>
+                        </tree>
+                        <field name="name" nolabel="1"/>
+                        <!--form string='Siswa'>
+                            <group>
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="start_date"/>
+                                <field name="duration"/>
+                                <field name="seats"/>
+                            </group>
+                        </form-->
+                    </field>
+                    <group col="2">
+                        <field name="usia"/>
+                        <field name="no_telp"/>
+                        <field name="alamat"/>
+                    </group>
+                </group>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
+        </form>
+    </field>
+</record>
+
+<!-- Membuat Action/Event Guru -->
+ 
+<record id="sekolah_guru_action" model="ir.actions.act_window">
+    <field name="name">Guru</field>
+    <field name="res_model">sekolah.guru</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p name="o_view_nocontent_smiling_face">
+            Masukan data guru ...
+        </p>
+    </field>
+</record>
+
+<!-- Membuat View Tree/List Mapel -->
+ 
+<record id="sekolah_mapel_view_tree" model="ir.ui.view">
+    <field name="name">sekolah.mapel.tree</field>
+    <field name="model">sekolah.mapel</field>
+    <field name="arch" type="xml">
+        <tree string="Mapel List">
+            <field name="name"/>
+            <field name="jurusan"/>
+            <field name="guru_id"/>
+        </tree>
+    </field>
+</record>
+
+<!-- Membuat View Form Mapel -->
+ 
+<record id="sekolah_mapel_view_form" model="ir.ui.view">
+    <field name="name">sekolah.mapel.form</field>
+    <field name="model">sekolah.mapel</field>
+    <field name="arch" type="xml">
+        <form string="Mapel Form">
+            <sheet>
+                <group col="1">
+                    <field name="name"/>
+                    <field name="jurusan"/>
+                    <field name="guru_id" widget="selection"/>
+                </group>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
+        </form>
+    </field>
+</record>
+
+<!-- Membuat Action/Event Mapel -->
+ 
+<record id="sekolah_mapel_action" model="ir.actions.act_window">
+    <field name="name">Mata Pelajaran</field>
+    <field name="res_model">sekolah.mapel</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p name="o_view_nocontent_smiling_face">
+            Masukan Mata Pelajaran ...
+        </p>
+    </field>
+</record>
+
+<!-- Membuat View Tree/List Kelas -->
+ 
+<record id="sekolah_kelas_view_tree" model="ir.ui.view">
+    <field name="name">sekolah.kelas.tree</field>
+    <field name="model">sekolah.kelas</field>
+    <field name="arch" type="xml">
+        <tree string="Kelas List">
+            <field name="name"/>
+            <!--field name="siswa"/-->
+            <field name="siswa_line"/>
+            <field name="wali_kelas"/>
+        </tree>
+    </field>
+</record>
+
+<!-- Membuat View Form Kelas -->
+ 
+<record id="sekolah_kelas_view_form" model="ir.ui.view">
+    <field name="name">sekolah.kelas.form</field>
+    <field name="model">sekolah.kelas</field>
+    <field name="arch" type="xml">
+        <form string="Kelas Form">
+            <sheet>
+                <group col="2">
+                    <field name="name"/>
+                    <field name="wali_kelas" widget="selection"/>
+                </group>
+                <!--group col="2">
+                    <field name="siswa" nolabel="1"/>
+                </group-->
+                <group>
+                    <field name="siswa_line" mode="tree,list" nolabel="1" widget="one2many">
+                        <tree string="Siswa">
+                            <field name="name"/>
+                        </tree>
+                        <field name="name" nolabel="1"/>
+                        <!--form string='Siswa'>
+                            <group>
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="start_date"/>
+                                <field name="duration"/>
+                                <field name="seats"/>
+                            </group>
+                        </form-->
+                    </field>
+                </group>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
+        </form>
+    </field>
+</record>
+
+<!-- Membuat Action/Event Kelas -->
+ 
+<record id="sekolah_kelas_action" model="ir.actions.act_window">
+    <field name="name">Kelas</field>
+    <field name="res_model">sekolah.kelas</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p name="o_view_nocontent_smiling_face">
+            Masukan Data Kelas ...
+        </p>
+    </field>
+</record>
+
+<!-- Membuat View Tree/List Jadwal -->
+ 
+<record id="sekolah_jadwal_view_tree" model="ir.ui.view">
+    <field name="name">sekolah.jadwal.tree</field>
+    <field name="model">sekolah.jadwal</field>
+    <field name="arch" type="xml">
+        <tree string="Jadwal List">
+            <field name="hari"/>
+            <field name="name"/>
+            <field name="start" widget="float_time"/>
+            <field name="end" widget="float_time"/>
+            <field name="mapel"/>
+        </tree>
+    </field>
+</record>
+
+<!-- Membuat View Form Jadwal -->
+ 
+<record id="sekolah_jadwal_view_form" model="ir.ui.view">
+    <field name="name">sekolah.jadwal.form</field>
+    <field name="model">sekolah.jadwal</field>
+    <field name="arch" type="xml">
+        <form string="Jadwal Form">
+            <sheet>
+                <group col="2">
+                    <group col="1">
+                        <field name="hari"/>
+                        <field name="name" widget="selection"/>
+                    </group>
+                    <group col="1">
+                        <field name="start" widget="float_time"/>
+                        <field name="end" widget="float_time"/>
+                    </group>
+                </group>
+                <group col="1">
+                    <field name="mapel" widget="selection"/>
+                    <field name="autojurusan"/>
+                    <field name="autoguru"/>
+                </group>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
+        </form>
+    </field>
+</record>
+
+<!-- Membuat Action/Event Jadwal -->
+ 
+<record id="sekolah_jadwal_action" model="ir.actions.act_window">
+    <field name="name">Jadwal</field>
+    <field name="res_model">sekolah.jadwal</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p name="o_view_nocontent_smiling_face">
+            Masukan Jadwal Kelas ...
+        </p>
+    </field>
+</record>
+
+
+<!-- Membuat Menu Dashboard -->
+ 
+<menuitem id="menu_dashboard_sekolah" name="Sekolah"/>
+ 
+<!-- Membuat Menu Bar sekolah -->
+ 
+<menuitem id="menu_bar_siswa" name="Siswa" parent="menu_dashboard_sekolah" action="sekolah_siswa_action"/>
+<menuitem id="menu_bar_guru" name="Guru" parent="menu_dashboard_sekolah" action="sekolah_guru_action"/>
+<menuitem id="menu_bar_mapel" name="Mata Pelajaran" parent="menu_dashboard_sekolah" action="sekolah_mapel_action"/>
+<menuitem id="menu_bar_kelas" name="Kelas" parent="menu_dashboard_sekolah" action="sekolah_kelas_action"/>
+<menuitem id="menu_bar_jadwal" name="Jadwal" parent="menu_dashboard_sekolah" action="sekolah_jadwal_action"/>
+
+<!-- Membuat Data Dummy Activity Type -->
+ 
+<record id="mail_activity_data_sekolah_siswa" model="mail.activity.type">
+    <field name="name">Data Sekolah</field>
+    <field name="icon">fa-envelope</field>
+    <field name="res_model_id" ref="addons_sekolah.model_sekolah_siswa"/>
+</record>
+ 
+<record id="mail_activity_data_siswa" model="mail.activity.type">
+    <field name="name">Data Siswa</field>
+    <field name="icon">fa-users</field>
+    <field name="res_model_id" ref="addons_sekolah.model_sekolah_siswa"/>
+</record>
+ 
+<!-- Membuat Menu Item siswa -->
+ 
+<!-- menuitem id="menu_item_siswa" name="Siswa" parent="menu_bar_sekolah" -->
+
+
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="addons_sekolah.list">
+      <field name="name">addons_sekolah list</field>
+      <field name="model">addons_sekolah.addons_sekolah</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="addons_sekolah.action_window">
+      <field name="name">addons_sekolah window</field>
+      <field name="res_model">addons_sekolah.addons_sekolah</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="addons_sekolah.action_server">
+      <field name="name">addons_sekolah server</field>
+      <field name="model_id" ref="model_addons_sekolah_addons_sekolah"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="addons_sekolah" id="addons_sekolah.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="addons_sekolah.menu_1" parent="addons_sekolah.menu_root"/>
+    <menuitem name="Menu 2" id="addons_sekolah.menu_2" parent="addons_sekolah.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="addons_sekolah.menu_1_list" parent="addons_sekolah.menu_1"
+              action="addons_sekolah.action_window"/>
+    <menuitem name="Server to list" id="addons_sekolah" parent="addons_sekolah.menu_2"
+              action="addons_sekolah.action_server"/>
+-->
+  </data>
+</odoo>

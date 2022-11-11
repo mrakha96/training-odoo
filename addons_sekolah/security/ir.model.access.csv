@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+siswa_user,siswa.user,model_sekolah_siswa,group_sekolah_user,1,1,1,1
+guru_user,guru.user,model_sekolah_guru,group_sekolah_user,1,1,1,1
+mapel_user,mapel.user,model_sekolah_mapel,group_sekolah_user,1,1,1,1
+kelas_user,kelas.user,model_sekolah_kelas,group_sekolah_user,1,1,1,1
+jadwal_user,jadwal.user,model_sekolah_jadwal,group_sekolah_user,1,1,1,1

@@ -1,0 +1,24 @@
+<odoo>
+ 
+    <!-- Membuat Category Group Sekolah -->
+ 
+    <record id="module_category_sekolah" model="ir.module.category">
+        <field name="name">Sekolah</field>
+    </record>
+ 
+    <!-- Membuat Group Sekolah -->
+ 
+    <record id="group_sekolah_user" model="res.groups">
+        <field name="name">Sekolah / User</field>
+        <field name="category_id" ref="module_category_sekolah"/>
+    </record>
+ 
+    <record id="group_sekolah_manager" model="res.groups">
+        <field name="name">Sekolah / Manager</field>
+        <field name="category_id" ref="module_category_sekolah"/>
+        <field name="implied_ids" eval="[(4, ref('group_sekolah_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+ 
+ 
+</odoo>
